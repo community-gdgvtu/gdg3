@@ -331,6 +331,7 @@
         </div>
 
         
+
         <div class="next-chapter-message">
             Proceed to Next Chapter
         </div>
@@ -360,9 +361,18 @@
             }, 50);
         }
 
-        // Initialize animations
+        // Change the URL displayed in the address bar (dummy URL)
+        function setDummyURL() {
+            const dummyURL = '/devfest-2025/challenges/complete';
+            if (window.history && window.history.pushState) {
+                window.history.pushState({}, document.title, dummyURL);
+            }
+        }
+
+        // Call when page loads
         window.addEventListener('load', () => {
             setTimeout(animateCounter, 600);
+            setDummyURL();
         });
 
         // Add subtle parallax effect on mouse move
